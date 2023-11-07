@@ -10,9 +10,9 @@
     "multer-gridfs-storage": "^5.0.2"
   },
     "scripts": {
-    "start": "node App3.js",
-    "start": "node loginRegister.js",
-    "start": "node uploadImage.js"
+  
+    "start": "node loginRegister.js"
+
   }
   
 }
