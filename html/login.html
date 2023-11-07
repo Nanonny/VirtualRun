@@ -1,0 +1,59 @@
+<html lang="en">
+
+<head>
+    <meta chaset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name=" viewport" content="width=device-width, initial-scal=1.0">
+    <title>document</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<form action="http://localhost:3000/login" method="post">
+    <div  style="  display: flex; justify-content: center; align-items: center;" class="imgcontainer">
+        <h1>
+            Login
+        </h1>
+      
+    </div>
+  
+    <div style="justify-content: center; align-items:center; margin-left: 400px; " class="container">
+      <label for="uname"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+      <div style="   display: flex; justify-content: center;margin-left: -100px;" class="btn-login-cancel">
+        <button style="  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); width: 100px; border-radius: 15px;" id = "goToPageButton"type="submit">Login</button>
+       <button style="  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  margin-left: 50px; background-color: rgb(236, 6, 6); width: 100px; border-radius: 15px;" id = "goToPageButton"type="submit">Cancel</button>
+
+      </div>
+  
+      
+      <script>
+        document.getElementById('goToPageButton').addEventListener('click', function() {
+            // นำไปยังหน้าที่ต้องการเชื่อมโยงไป
+            window.location.href = 'http://127.0.0.1:5501/html/tets.html'; // แทน 'page2.html' ด้วย URL ของหน้าที่คุณต้องการ
+        
+            // ถ้าต้องการให้เปิดในแท็บใหม่
+            // window.open('page2.html', '_blank'); // แทน 'page2.html' ด้วย URL ของหน้าที่คุณต้องการ
+        });
+        </script>
+      
+    </div>
+  
+    
+    <script>
+        function changePage() {
+          
+          const newPageURL = "http://127.0.0.1:5500/html/index.html";
+          window.location.href = newPageURL;
+        }
+    </script>
+  </form>
+
+
+
+
+
+</html>
+
+

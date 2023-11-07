@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="\css\registereven.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="/js/script.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<body>
+
+<form id="regForm" action="">
+  <h1>ใบสมัคร</h1>
+  <!-- One "tab" for each step in the form: -->
+  <div class="tab">ข้อมูลผู้สมัคร:
+    <p><input id="txt1" placeholder="ชื่อ-นามสกุล" oninput="this.className = ''" name="fname"></p>
+   
+    
+    
+    <p><input placeholder="อีเมล" oninput="this.className = ''" name="lname"></p>
+    <p><input id="txt3" placeholder="โทรศัพท์" oninput="this.className = ''" name="lname"></p>
+    <label for="gender">เพศตามบัตรประชาชน</label>
+    <select id="gender" name="gender">
+      <option value="male">Male</option><br>
+      <option value="female">Female</option><br>
+      <option value="other">Other</option>
+    </select>
+
+
+    <p><input placeholder="ที่อยู่ปัจจุบัน" oninput="this.className = ''" name="lname"></p>
+    <p><input placeholder="สัญชาติ" oninput="this.className = ''" name="lname"></p>
+    <br><label for="sixe-shirt">ไซส์เสื้อ</label>
+    <select id="size" name="size">
+      <option value="S">size-S</option><br>
+      <option value="M">size-M</option><br>
+      <option value="L">size-L</option><br>
+      <option value="XL">size-XL</option><br>
+      <option value="XXL">size-XXL</option>
+    </select>
+    <p>รายการสินค้าของที่ระลึก</p>
+
+    <div style="margin-top: 20px; display: flex; justify-content: space-between; margin-left: 100px;" class="imgshop">
+      <label>
+          <img style="width: 50px;  height: 70%;" src="/img/shop1.png" alt="">
+          <input id="selectedProduct" type="checkbox" name="imageSelector" value="100" > แก้วสุดlimited <br> 100 THB
+      </label>
+      <label>
+          <img style="width: 50px;  height: 70%;" src="/img/shop2.png" alt="">
+          <input id="selectedProduct1" type="checkbox" name="imageSelector" value="199" data-price="20">กระเป๋าสุดlimited <br> 199 THB
+      </label>
+      <label>
+          <img style="width: 50px; height: 70%;" src="/img/shop3.png" alt="">
+          <input id="selectedProduct2" type="checkbox" name="imageSelector" value="150" data-price="15">พวงกุนแจสุดlimited <br> 150 THB
+      </label>
+  </div>
+  <p>
+  <br><label for="name_event">ชื่อกิจกรรมที่ลงทะเบียน</label>
+  <select id="events" name="events">
+    <option value="ENTANEERRUN">ENTANEERRUN</option><br>
+  </select>
+  </p>
+ 
+  
+    
+  </div>
+  <div  class="tab">รายละเอียดการสมัคร
+    <p>รายการวิ่ง:entaneerrun 10KM.</p>
+    
+    <p   class="output" id="output1"> </p>
+  
+    <p class="output" id="output3"></p>
+    <p>ยอดที่ต้องชำระ:</p>
+    <p class="output" id="output4"></p>
+    <p class="output" id="output5"></p>
+    <p class="output" id="output6"></p>
+    <img  style=" margin-left: 250px; width: 200px; height: auto;" src="/img/qr.jpg" alt="">
+    <p>แนบรูปสลิปการโอนเงิน....</p>
+    
+    
+   
+    
+  </div>
+  
+
+  </div>
+ 
+  <div style="overflow:auto;">
+    <div style="float:right;margin-block-end: auto;margin-top: 200px;">
+      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <button  type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+    </div>
+  </div>
+  <!-- Circles which indicates the steps of the form: -->
+  <div style="text-align:center;margin-top:100px;">
+    <span class="step"></span>
+    <span class="step"></span>
+   
+   
+  </div>
+</form>
+
+<script>
+
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "ยืนยัน"
+    
+    ;
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+    
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+ 
+}
+
+
+
+
+
+const txt1 = document.getElementById('txt1');
+const txt2 = document.getElementById('txt2');
+const txt3 = document.getElementById('txt3');
+const btn1 = document.getElementById('nextBtn');
+const out1 = document.getElementById('output1');
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+
+
+const out3 = document.getElementById('output3');
+const out4 = document.getElementById('output4');
+const out5 = document.getElementById('output5');
+const out6 = document.getElementById('output6');
+
+
+
+
+const product = [{
+  id: 1,
+  img: '',
+  name: 'ราคาค่าสมัคร',
+  price: 500
+}];
+
+
+
+const random =  Math.floor(Math.random()* 999999) + 1;
+
+let selectedProductValues = []; // Array เพื่อเก็บค่าของสินค้าที่ถูกเลือก
+
+// Event listener สำหรับ checkboxes เพื่ออัปเดตค่าของสินค้าที่ถูกเลือก
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            selectedProductValues.push(this.value); // เพิ่มค่าของ checkbox ที่ถูกเลือกเข้าใน array
+            const total = 
+            
+
+            console.log('ค่าของสินค้าที่ถูกเลือก: ', selectedProductValues);
+            
+        } else {
+            const index = selectedProductValues.indexOf(this.value);
+            if (index > -1) {
+                selectedProductValues.splice(index, 1); // ลบค่า checkbox ที่ถูกยกเลิกออกจาก array
+                console.log('ค่าของสินค้าที่ถูกเลือก: ', selectedProductValues);
+            }
+        }
+    });
+});
+
+
+ function fun1(){
+ 
+    out1.innerHTML = 'ชื่อผู้สมัคร:'+ txt1.value;
+    const initialValue = product[0].price; // ค่าที่ต้องการเพิ่ม
+    const totalFromCheckbox = selectedProductValues.reduce((acc, currentValue) => acc + parseFloat(currentValue), 0);
+    const finalTotal = totalFromCheckbox + initialValue;
+    
+    
+    out3.innerHTML = 'เลขประจำตัวผู้สมัคร:'+random;
+    out4.innerHTML = 'ราคาค่าสมัครกิจกรรม:' + product[0].price;
+    
+    
+    out5.innerHTML = 'ราคาค่าสินค้าทั้งหมด:' +  selectedProductValues.reduce((acc, currentValue) => acc + parseFloat(currentValue), 0);
+    out6.innerHTML =  'ยอดเงินที่ต้องชำระทั้งหมด:' + finalTotal;
+   
+    
+
+}
+btn1.addEventListener('click',fun1);
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    window.location.replace('upload.html');
+    alert('ลงทะเบียนเสร็จสิ้น')
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
+</script>
+
+</body>
+</html>

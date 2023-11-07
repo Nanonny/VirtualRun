@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:wght@600&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Mali', cursive;
+  box-sizing: border-box;
+}
+.topnav {
+  background-color: #ffffff;
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* จัดให้ข้อความอยู่ตรงกลางตามแนวนอน */
+  align-items: center; /* จัดให้ข้อความอยู่ตรงกลางตามแนวดิ่ง */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้กับ Navbar */
+
+
+
+}
+.containare{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.topnav .logo{
+  margin-right: 600px;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #030303;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: rgb(184, 174, 174);
+  color: rgb(0, 0, 0);
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+nav {
+  width: 100%;
+  height: 2vw;
+
+}
+.nav-container {
+  max-width: 90vw;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logonav {
+  width: 7vw;
+  object-fit: contain;
+}
+.nav-profile {
+  display: flex;
+  align-items: center;
+}
+.nav-profile-name {
+  color: #fff;
+  font-size: 1.2vw;
+  
+}
+
+.nav-profile-cart .register .a{
+    font-size: 50px;
+}
+.nav-profile-cart {
+  position: relative;
+}
+.cartcount {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  color: #242222;
+}
+.container {
+  width: 1140px;
+  margin: 0 auto;
+  display: flex;
+}
+.sidebar {
+  width: 20%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.product {
+  width: 100%;
+  
+  margin: 0 auto;
+  margin-top: 100px;
+  
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 50px;
+  text-align: center;
+ 
+  
+}
+
+.product-items {
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  
+}
+.product-items:hover {
+  transform: scale(1.03);
+}
+.product-img {
+  width: 300px;
+  height: 17vw;
+  object-fit: cover;
+  border-radius: 10px;
+
+}
+
+
+.product .product-items {
+  text-decoration: none;
+  color: #000;
+}
+
+
+
+
+
+

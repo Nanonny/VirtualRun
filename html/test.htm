@@ -1,0 +1,95 @@
+<div class="container">
+  <ul class="product-list">
+    <li>
+      <img src="image1.jpg" alt="Product 1">
+      <input type="checkbox" name="product" value="1">
+      Product 1 - $10
+    </li>
+    <li>
+      <img src="image2.jpg" alt="Product 2">
+      <input type="checkbox" name="product" value="2">
+      Product 2 - $20
+    </li>
+    <li>
+      <img src="image3.jpg" alt="Product 3">
+      <input type="checkbox" name="product" value="3">
+      Product 3 - $15
+    </li>
+  </ul>
+  <div class="product-info"></div>
+  <style>
+    .container {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.product-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.product-list li {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.product-list li img {
+  width: 50px;
+  height: 50px;
+}
+
+.product-list li input {
+  margin-left: 10px;
+}
+
+.product-list li span {
+  font-size: 18px;
+}
+
+.product-info {
+  display: none;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.product-info h2 {
+  font-size: 24px;
+}
+
+.product-info p {
+  font-size: 18px;
+}
+  </style>
+  <script>
+    const productList = document.querySelector(".product-list");
+const productInfo = document.querySelector(".product-info");
+
+productList.addEventListener("click", (event) => {
+  const checkbox = event.target;
+  const productId = checkbox.value;
+
+  // Get the product information
+  const productName = productList.querySelector(`[data-product-id="${productId}"]`).textContent;
+  const productPrice = productList.querySelector(`[data-product-price="${productId}"]`).textContent;
+
+  // Show the product information in the next tab
+  productInfo.innerHTML = `
+    <h2>Product Information</h2>
+    <p>Product Name: ${productName}</p>
+    <p>Product Price: ${productPrice}</p>
+  `;
+
+  // Show the next tab
+  productInfo.style.display = "block";
+});
+  </script>
+ 
+</div>
